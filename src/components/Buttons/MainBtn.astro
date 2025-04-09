@@ -1,0 +1,57 @@
+---
+const { href, text, variant = "primary", size = "medium", id, class: className, onClick } = Astro.props;
+---
+
+{
+  href ? (
+    <a
+      href={href}
+      id={id}
+      class={`
+        inline-block text-center font-semibold rounded-lg transition-colors
+        ${
+          variant === "primary"
+            ? "bg-primary text-white hover:bg-primary-light"
+            : variant === "secondary"
+              ? "bg-secondary text-white hover:bg-secondary-dark"
+              : "bg-transparent border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+        }
+        ${
+          size == "small"
+            ? "px-3 py-2 text-sm"
+            : size === "large"
+              ? "px-6 py-3 text-lg"
+              : "px-4 py-2 text-base"
+        }
+        ${className}
+      `}
+    >
+      {text}
+    </a>
+  ) : (
+    <button
+      id={id}
+      onclick={onClick}
+      class={`
+        inline-block text-center font-semibold rounded-lg transition-colors
+        ${
+          variant === "primary"
+            ? "bg-primary text-white hover:bg-primary-light"
+            : variant === "secondary"
+              ? "bg-secondary text-white hover:bg-secondary-dark"
+              : "bg-transparent border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
+        }
+        ${
+          size == "small"
+            ? "px-3 py-2 text-sm"
+            : size === "large"
+              ? "px-6 py-3 text-lg"
+              : "px-4 py-2 text-base"
+        }
+        ${className}
+      `}
+    >
+      {text}
+    </button>
+  )
+}

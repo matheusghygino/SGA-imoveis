@@ -1,0 +1,90 @@
+---
+// src/components/HeroSection.astro
+---
+
+<div class="relative min-h-[600px] flex items-center" id="home">
+  <!-- Background image (responsive) -->
+  <picture class="absolute inset-0 w-full h-full">
+    <source
+      media="(max-width: 768px)"
+      srcset="/capa_sga.jpeg"
+      type="image/jpg"
+    />
+    <source
+      media="(max-width: 1024px)"
+      srcset="/capa_sga.jpeg"
+      type="image/jpg"
+    />
+    <source
+      media="(min-width: 1025px)"
+      srcset="/capa_sga.jpeg"
+      type="image/jpg"
+    />
+    <source media="(max-width: 768px)" srcset="/hero-small.jpg" />
+    <source media="(max-width: 1024px)" srcset="/hero-medium.jpg" />
+    <source media="(min-width: 1025px)" srcset="/hero-large.jpg" />
+    <img
+      src="/capa_sga.jpeg"
+      alt="Imagem de fundo representando o agronegócio mato-grossense"
+      class="w-full h-full object-cover"
+      loading="lazy"
+    />
+  </picture>
+
+  <!-- Dark overlay to better visibility -->
+  <div class="absolute inset-0 bg-black/60"></div>
+
+  <!-- Content container -->
+  <div class="container mx-auto px-4 md:px-20 relative z-10 pt-40">
+    <div class="max-w-2xl ml-auto">
+      <!-- Título principal -->
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight text-white">
+        Conectando pessoas ao melhor do litoral capixaba
+      </h1>
+
+      <!-- Texto descritivo -->
+      <div class="mt-8 space-y-4 text-neutral-100">
+        <p class="text-lg leading-relaxed">
+          Com raízes em Vila Velha e paixão por transformar sonhos em realidade,
+          a SGA Imóveis é a ponte entre você e o seu novo lar. Atuamos com
+          transparência, agilidade e profundo conhecimento do mercado local — da
+          Praia da Costa à Itaparica — para te ajudar a encontrar o imóvel
+          ideal.
+        </p>
+        <p class="text-xl leading-relaxed font-bold">
+          Modernidade e confiança para facilitar sua jornada.
+        </p>
+      </div>
+
+      <!-- CTA WhatsApp alinhado à direita -->
+      <div class="mt-10 flex justify-end">
+        <a
+          href="https://wa.me/5527992627793?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20imóveis%20disponíveis"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              d="M17.507 14.307l-.009.075c-2.199-1.096-2.429-1.242-2.713-.816-.197.295-.771.964-.944 1.162-.175.195-.349.21-.646.075-.3-.15-1.263-.465-2.403-1.485-.888-.795-1.484-1.77-1.66-2.07-.173-.297-.019-.458.13-.606.134-.135.3-.349.45-.523.146-.172.195-.297.293-.495.098-.198.05-.37-.025-.52-.075-.148-.659-1.575-.901-2.162-.24-.584-.487-.505-.659-.51-.168-.006-.362-.01-.556-.01-.191 0-.501.074-.762.372-.26.3-1 .977-1 2.385 0 1.408 1.025 2.791 1.167 2.981.142.19 2 3.168 4.937 4.487.69.306 1.23.489 1.652.625.73.234 1.395.201 1.917.122.574-.091 1.767-.721 2.016-1.426.255-.705.255-1.29.18-1.425-.074-.135-.27-.21-.57-.345z"
+            ></path>
+            <path
+              d="M20 11.794c0 4.304-3.516 7.794-7.855 7.794-1.375 0-2.653-.356-3.78-.964l-4.203 1.504 1.365-4.121C4.213 14.89 3.855 13.59 3.855 12.2c0-4.304 3.517-7.794 7.855-7.794 4.339 0 7.855 3.49 7.855 7.794zM12 4c-4.411 0-8 3.589-8 8 0 1.104.229 2.104.6 3h-1.65L4 20l4.95-1.667c.976.558 2.096.892 3.317.892 4.411 0 8-3.589 8-8s-3.589-8-8-8z"
+            ></path>
+          </svg>
+          Fale conosco pelo WhatsApp
+        </a>
+      </div>
+      <p class="mt-3 text-sm text-neutral-300 italic text-right">
+        Atendimento rápido e direto com nossos especialistas
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+---
+/* Se desejar, você pode adicionar lógica ou props aqui para customizar o número e a mensagem */
+---
+<style>
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: #fff;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+    .whatsapp-button:hover {
+      background-color: #128C7E;
+    }
+    .whatsapp-icon {
+      width: 32px;
+      height: 32px;
+    }
+  </style>
+  
+  <a 
+    href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20conversar!" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    class="whatsapp-button"
+  >
+    <!-- Ícone do WhatsApp em SVG -->
+    <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20.52 3.48A11.82 11.82 0 0012 0C5.39 0 0 5.39 0 12a11.82 11.82 0 001.69 6L0 24l6.35-1.66a11.82 11.82 0 005.65 1.46h.01C18.61 24 24 18.61 24 12a11.82 11.82 0 00-3.48-8.52zM12 22.08a9.91 9.91 0 01-5.09-1.38l-.36-.21-3.76.98.99-3.67-.24-.38A9.93 9.93 0 012.08 12c0-5.51 4.47-10 10-10s10 4.49 10 10-4.49 10-10 10zm5.27-7.53c-.29-.15-1.73-.85-2-0.95-.27-.1-.46-.15-.65.15-.2.29-.75.95-.92 1.14-.18.2-.35.22-.64.07-.29-.15-1.23-.45-2.34-1.45-.86-.77-1.44-1.73-1.6-2.02-.15-.29-.02-.45.11-.6.11-.11.26-.29.39-.43.13-.15.18-.26.26-.43.09-.17.04-.32-.02-.47-.07-.15-.65-1.58-.89-2.18-.23-.56-.47-.49-.65-.5h-.56c-.18 0-.47.07-.72.32-.25.25-.95.93-.95 2.27s.97 2.64 1.11 2.83c.15.18 2.13 3.25 5.17 4.55.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.73-.71 1.98-1.39.25-.68.25-1.26.18-1.39-.07-.13-.27-.18-.56-.33z"/>
+    </svg>
+  </a>
+  

@@ -1,0 +1,89 @@
+---
+// src/components/AboutSection.astro
+---
+
+<section class="py-20 bg-neutral md:px-20" id="sobre">
+    <div class="container mx-auto px-4">
+      <!-- Cabeçalho -->
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+          Nossa História, Seu Futuro
+        </h2>
+        <p class="text-lg text-neutral-700">
+          Três décadas construindo confiança e realizando sonhos no coração do agronegócio brasileiro
+        </p>
+      </div>
+  
+      <!-- Grid de Conteúdo -->
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- Coluna de Texto -->
+        <div class="space-y-8">
+          <!-- Bloco de Missão -->
+          <div class="bg-white p-8 rounded-lg shadow-md border-l-4 border-secondary">
+            <h3 class="text-xl font-bold text-primary mb-4">
+              🌊 O Que Fazemos
+            </h3>
+            <p class="text-neutral-700 leading-relaxed">
+              Na SGA Imóveis, somos especialistas em conectar pessoas ao imóvel certo nas melhores regiões urbanas e litorâneas de Vila Velha e Grande Vitória. Atuamos com foco na experiência do cliente, oferecendo:
+            </p>
+            <ul class="mt-4 space-y-3">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-secondary flex-shrink-0 mt-1 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-neutral-700">Intermediação segura e eficiente na <b>compra, venda e locação de imóveis urbanos</b></span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-secondary flex-shrink-0 mt-1 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-neutral-700"><b>Avaliação técnica e documental</b> completa dos imóveis</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-secondary flex-shrink-0 mt-1 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-neutral-700"><b>Consultoria personalizada</b> para quem busca morar ou investir próximo ao litoral capixaba</span>
+              </li>
+            </ul>
+          </div>
+  
+          <!-- Bloco de Diferenciais -->
+          <div class="bg-white p-8 rounded-lg shadow-md border-l-4 border-accent">
+            <h3 class="text-xl font-bold text-primary mb-4">
+              ⭐ Por Que Escolher a SGA Imóveis
+            </h3>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="p-4 bg-neutral-50 rounded-lg">
+                <p class="text-2xl font-bold text-secondary-dark">+10</p>
+                <p class="text-sm text-neutral-700">Anos de experiência combinada na equipe</p>
+              </div>
+              <div class="p-4 bg-neutral-50 rounded-lg">
+                <p class="text-2xl font-bold text-secondary-dark">100+</p>
+                <p class="text-sm text-neutral-700">Imóveis disponíveis nas melhores localizações</p>
+              </div>
+              <div class="p-4 bg-neutral-50 rounded-lg">
+                <p class="text-2xl font-bold text-secondary-dark">100%</p>
+                <p class="text-sm text-neutral-700">Foco em imóveis urbanos e litorâneos</p>
+              </div>
+              <div class="p-4 bg-neutral-50 rounded-lg">
+                <p class="text-2xl font-bold text-secondary-dark">24/7</p>
+                <p class="text-sm text-neutral-700">Atendimento ágil, humano e direto pelo WhatsApp</p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Coluna de Imagem -->
+        <div class="relative h-full min-h-[400px] rounded-lg overflow-hidden">
+          <img
+            src="/sobre-nos.jpg"
+            alt="Equipe da imobiliária em reunião com produtores rurais"
+            class="w-full h-full object-cover absolute inset-0"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-black/30"></div>
+        </div>
+      </div>
+    </div>
+  </section>

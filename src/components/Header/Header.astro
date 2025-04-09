@@ -1,0 +1,202 @@
+---
+import MainBtn from "../Buttons/MainBtn.astro";
+
+// Importa o botão
+---
+
+<header
+  id="siteHeader"
+  class="bg-slate-400 shadow-lg fixed w-full z-50 px-4 md:px-20 transition-all duration-300"
+>
+  <div
+    class="container mx-auto flex justify-between items-center py-4 transition-all duration-300"
+  >
+    <!-- Logo -->
+    <div>
+      <a href="/">
+        <img
+          id="logo"
+          src="/logo.jpg"
+          alt="Fontes & Fontes Cleaning"
+          class="h-28 transition-all duration-300 rounded-full"
+        />
+      </a>
+    </div>
+
+    <!-- Menu Hambúrguer -->
+    <button id="menuButton" class="md:hidden focus:outline-none z-50">
+      <svg
+        id="menuIcon"
+        class="w-6 h-6 transition-transform transform"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          id="topBar"
+          class="transition-all duration-500"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16"></path>
+        <path
+          id="middleBar"
+          class="transition-all duration-500"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 12h16"></path>
+        <path
+          id="bottomBar"
+          class="transition-all duration-500"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 18h16"></path>
+      </svg>
+    </button>
+
+    <!-- Menu Desktop -->
+    <nav
+      id="desktopMenu"
+      class="hidden md:flex space-x-8 items-center text-lg lg:text-2xl font-semibold text-center transition-all duration-300"
+    >
+      <a href="/#home" class="nav-link">Home</a>
+      <a href="/#categoria" class="nav-link">Categorias</a>
+      <a href="/#sobre" class="nav-link">Sobre</a>
+      <a href="/#contato" class="nav-link">Contato</a>
+      <MainBtn href="/imoveis" text="Imóveis" variant="primary" size="large" />
+    </nav>
+  </div>
+
+  <!-- Menu Mobile (Full Screen) -->
+  <div
+    id="mobileMenu"
+    class="fixed top-0 left-0 w-full h-0 bg-opacity-95 flex flex-col items-center justify-center overflow-hidden bg-slate-100 transform transition-all duration-700 ease-in-out text-lg opacity-0 z-40"
+  >
+    <nav class="flex flex-col space-y-6 text-center">
+      <a
+        href="/#Home"
+        class="font-semibold text-lg text-lime-950 hover:text-lime-900">Home</a
+      >
+      <a
+        href="/#categoria"
+        class="font-semibold text-lg text-lime-950 hover:text-lime-900"
+        >Categorias</a
+      >
+      <a
+        href="/#sobre"
+        class="font-semibold text-lg text-lime-950 hover:text-lime-900">Sobre</a
+      >
+      <a
+        href="/#contato"
+        class="font-semibold text-lg text-lime-950 hover:text-lime-900"
+        >Contato</a
+      >
+      <MainBtn href="/imoveis" text="Imóveis" variant="primary" size="medium" />
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById("siteHeader");
+  const logo = document.getElementById("logo");
+  const desktopMenu = document.getElementById("desktopMenu");
+  const navLinks = document.querySelectorAll(".nav-link");
+  let lastScrollY = window.scrollY;
+  let isSmall = false;
+
+  window.addEventListener("scroll", () => {
+    if (!header || !logo || !desktopMenu) return;
+
+    const scrollY = window.scrollY;
+
+    if (scrollY > lastScrollY && !isSmall) {
+      // Rolando para baixo: diminuir header, logo e menu
+      header.classList.add("small-header");
+      logo.classList.add("small-logo");
+      desktopMenu.classList.add("small-menu");
+      navLinks.forEach((link) => link.classList.add("small-nav"));
+      isSmall = true;
+    } else if (scrollY < lastScrollY && isSmall) {
+      // Rolando para cima: voltar ao tamanho normal
+      header.classList.remove("small-header");
+      logo.classList.remove("small-logo");
+      desktopMenu.classList.remove("small-menu");
+      navLinks.forEach((link) => link.classList.remove("small-nav"));
+      isSmall = false;
+    }
+
+    lastScrollY = scrollY;
+  });
+
+  // Restaurar header ao passar o mouse por cima
+  header.addEventListener("mouseenter", () => {
+    header.classList.remove("small-header");
+    logo.classList.remove("small-logo");
+    desktopMenu.classList.remove("small-menu");
+    navLinks.forEach((link) => link.classList.remove("small-nav"));
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const menuButton = document.getElementById("menuButton");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("h-0", "opacity-0")) {
+          mobileMenu.classList.remove("h-0", "opacity-0");
+          mobileMenu.classList.add("h-screen", "opacity-100");
+        } else {
+          mobileMenu.classList.add("h-0", "opacity-0");
+          mobileMenu.classList.remove("h-screen", "opacity-100");
+        }
+      });
+    }
+  });
+
+  
+</script>
+
+<style>
+  /* Classe para diminuir o header sem alterar a opacidade */
+  .small-header {
+    height: 70px !important;
+    padding: 5px 0 !important;
+    background: rgb(255, 254, 254); /* Fundo sem opacidade */
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Outras classes permanecem iguais */
+  .small-logo {
+    height: 50px !important;
+    transition: all 0.3s ease-in-out;
+  }
+  .small-menu {
+    transform: scale(0.9);
+    transition: transform 0.3s ease-in-out;
+  }
+  .small-nav {
+    font-size: 14px !important;
+    transition: font-size 0.3s ease-in-out;
+  }
+  .nav-link {
+    color: #3b3b3b;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+  }
+  .nav-link:hover {
+    color: #1a1a1a;
+  }
+  
+  /* Scroll suave e margem para as âncoras */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+  }
+  section {
+    scroll-margin-top: 70px; /* Ajuste conforme a altura do header */
+  }
+</style>

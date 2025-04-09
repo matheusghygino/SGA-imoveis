@@ -1,0 +1,39 @@
+---
+import CategoryCard from "../Cards/CategoryCard.astro";
+
+// src/components/CategoriesSection.astro
+
+---
+
+<section class="py-20 bg-neutral-DEFAULT md:px-20" id="categoria">
+  <div class="container mx-auto px-4">
+    <!-- Cabeçalho -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-primary-DEFAULT mb-4">
+        Encontre o Imóvel Ideal
+      </h2>
+      <p class="text-lg text-neutral-700">
+        Explore nossas categorias e descubra propriedades que atendem às suas necessidades
+      </p>
+    </div>
+
+    <!-- Grid de Cards -->
+    <div class="grid md:grid-cols-3 gap-8">
+      <CategoryCard
+        title="Lançamentos"
+        image="/fazenda.jpg"
+        href="/imoveis#fazendas"
+      />
+      <CategoryCard
+        title="Casas e Apartamentos"
+        image=""
+        href=""
+      />
+      <CategoryCard
+        title="Chácaras e Sítios"
+        image="/chacaras.jpg"
+        href="/imoveis#chacaras"
+      />
+    </div>
+  </div>
+</section>

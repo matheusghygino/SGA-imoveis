@@ -1,0 +1,27 @@
+---
+// src/components/CategoryCard.astro
+const { title, image, href } = Astro.props;
+---
+
+<a
+  href={href}
+  class="group relative block h-64 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+>
+  <!-- Imagem de fundo -->
+  <img
+    src={image}
+    alt={title}
+    class="w-full h-full object-cover absolute inset-0"
+    loading="lazy"
+  />
+  
+  <!-- Overlay escuro -->
+  <div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-300"></div>
+
+  <!-- Título -->
+  <div class="absolute inset-0 flex items-center justify-center">
+    <h3 class="text-2xl font-bold text-white text-center px-4">
+      {title}
+    </h3>
+  </div>
+</a>

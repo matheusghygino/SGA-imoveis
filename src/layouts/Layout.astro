@@ -1,0 +1,71 @@
+---
+import Footer from "../components/Footer/Footer.astro";
+import Header from "../components/Header/Header.astro";
+import "aos/dist/aos.css";
+import ScrollToTopButton from "../components/Buttons/ScrollToTopButton.astro";
+import FloatingWhatsAppButton from "../components/Buttons/FloatingWhatsAppButton.astro";
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="cleaning services, Seattle, Bellevue, Kirkland, residential cleaning, commercial cleaning, office cleaning"
+    />
+    <meta name="author" content="Fontes & Fontes Cleaning" />
+    <link rel="canonical" href={Astro.url.href} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-ligth">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+
+    <ScrollToTopButton />
+    <FloatingWhatsAppButton />
+
+    <!-- Seu schema JSON -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Fontes & Fontes Cleaning",
+        "image": "https://www.fontescleaningllc.com/logo.jpg",
+        "description": "Professional cleaning services in Seattle, Bellevue, Kirkland, and surrounding areas.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "18234 73rd Avenue",
+          "addressLocality": "Northeast Kenmore",
+          "addressRegion": "WA",
+          "postalCode": "98028",
+          "addressCountry": "USA"
+        },
+        "telephone": "(509) 645-2818",
+        "url": "https://www.fontescleaningllc.com",
+        "openingHours": "Mo-Fr 08:00-18:00"
+      }
+    </script>
+  </body>
+</html>
+
+<script>
+  import AOS from "aos";
+  AOS.init({
+    duration: 500,
+    once: false,
+  });
+</script>

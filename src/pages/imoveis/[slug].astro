@@ -1,0 +1,48 @@
+---
+import Gallery from '../../components/React/Gallery';
+import ImoveisLayout from '../../layouts/ImoveisLayout.astro';
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const imoveis = await getCollection("imoveis");
+  return imoveis.map((imovel) => ({
+    params: { slug: imovel.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const imoveis = await getCollection("imoveis");
+const imovel = imoveis.find((i) => i.slug === slug);
+
+if (!imovel) {
+  return new Response(null, {
+    status: 404,
+    statusText: "Imóvel não encontrado",
+  });
+}
+
+const { Content } = await imovel.render();
+---
+
+<ImoveisLayout imoveis={imoveis} title={imovel.data.title} description={imovel.data.categoria}>
+  <section class="container mx-auto px-4 py-8">
+    <!-- Cabeçalho -->
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-primary-DEFAULT">{imovel.data.title}</h1>
+      <p class="text-lg text-neutral-700">{imovel.data.cidade}, {imovel.data.estado}</p>
+    </div>
+
+    <!-- Galeria como carrossel -->
+    <Gallery imagens={imovel.data.imagens} title={imovel.data.title} client:load />
+
+    <!-- Detalhes -->
+    <div class="grid md:grid-cols-3 gap-8 mb-8">
+      <!-- Seus outros detalhes aqui -->
+    </div>
+
+    <!-- Descrição -->
+    <article class="prose max-w-none">
+      <Content />
+    </article>
+  </section>
+</ImoveisLayout>

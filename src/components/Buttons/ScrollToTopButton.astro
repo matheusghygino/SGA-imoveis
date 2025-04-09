@@ -1,0 +1,40 @@
+---
+const { isVisible } = Astro.props;
+---
+
+<button
+  id="scrollToTopBtn"
+  class="fixed bottom-4 left-4 bg-blue-500 text-white rounded-full p-3 shadow-lg z-50 hover:bg-blue-400 transition-opacity duration-300"
+  aria-label="Scroll to top"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7-7-7 7M12 16V3" />
+  </svg>
+</button>
+
+<script>
+  // Lógica para mostrar o botão ao rolar para baixo
+  const button = document.getElementById("scrollToTopBtn");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      button.style.opacity = "1"; // Exibe o botão ao rolar para baixo
+    } else {
+      button.style.opacity = "0"; // Oculta o botão ao rolar para cima
+    }
+  });
+
+  button.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+</script>
+
+<style>
+  #scrollToTopBtn {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+</style>

@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+import ImoveisLayout from '../../layouts/ImoveisLayout.astro';
+import ImovelCard from '../../components/Cards/ImovelCard.astro';
+
+
+const imoveis = await getCollection('imoveis');
+console.log(imoveis)
+---
+
+<ImoveisLayout 
+  imoveis={imoveis} 
+  title="Nossos Imóveis" 
+  description="Encontre a propriedade ideal para o seu negócio">
+  <h1 class="text-3xl lg:text-5xl font-bold">Imóveis</h1>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8">
+    
+    {imoveis.map((imovel:any) => (
+      <ImovelCard imovel={imovel} />
+    ))}
+  </div>
+
+</ImoveisLayout>
+
+<style>
+  * {
+    scroll-behavior: smooth;
+  }
+</style>
+
+<script>
+  import AOS from "aos";
+  AOS.init({
+    duration: 500,
+    once: false,
+  });
+</script>
