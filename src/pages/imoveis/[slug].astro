@@ -1,6 +1,6 @@
 ---
-import Gallery from '../../components/React/Gallery';
-import ImoveisLayout from '../../layouts/ImoveisLayout.astro';
+import ImovelLayout from "../../layouts/ImovelLayout.astro";
+import Gallery from "../../components/React/Gallery";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -23,26 +23,47 @@ if (!imovel) {
 
 const { Content } = await imovel.render();
 ---
+<ImovelLayout imovel={imovel} imoveis={imoveis}>
+  <!-- Cabeçalho -->
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold text-primary-DEFAULT">{imovel.data.title}</h1>
+    <p class="text-lg text-neutral-700">{imovel.data.location}</p>
+  </div>
 
-<ImoveisLayout imoveis={imoveis} title={imovel.data.title} description={imovel.data.categoria}>
-  <section class="container mx-auto px-4 py-8">
-    <!-- Cabeçalho -->
-    <div class="mb-8">
-      <h1 class="text-3xl font-bold text-primary-DEFAULT">{imovel.data.title}</h1>
-      <p class="text-lg text-neutral-700">{imovel.data.cidade}, {imovel.data.estado}</p>
+  <!-- Galeria como carrossel -->
+  <Gallery imagens={imovel.data.imagens} title={imovel.data.title} client:load />
+
+  <!-- Detalhes -->
+  <div class="grid md:grid-cols-3 gap-8 my-12 text-gray-800">
+    <div class="bg-slate-50 rounded-md w-1/2 text-center">
+      <p class="text-sm text-gray-500">🛏️ Quartos</p>
+      <p class="text-lg font-semibold">{imovel.data.bedrooms}</p>
     </div>
-
-    <!-- Galeria como carrossel -->
-    <Gallery imagens={imovel.data.imagens} title={imovel.data.title} client:load />
-
-    <!-- Detalhes -->
-    <div class="grid md:grid-cols-3 gap-8 mb-8">
-      <!-- Seus outros detalhes aqui -->
+    <div class="bg-slate-50 rounded-md w-1/2 text-center">
+      <p class="text-sm text-gray-500">🛌 Suítes</p>
+      <p class="text-lg font-semibold">{imovel.data.suites ?? 0}</p>
     </div>
+    <div class="bg-slate-50 rounded-md w-1/2 text-center">
+      <p class="text-sm text-gray-500">🚿 Banheiros</p>
+      <p class="text-lg font-semibold">{imovel.data.bathrooms ?? 0}</p>
+    </div>
+    <div class="bg-slate-50 rounded-md w-1/2 text-center">
+      <p class="text-sm text-gray-500">🚗 Vagas</p>
+      <p class="text-lg font-semibold">{imovel.data.parking ?? 0}</p>
+    </div>
+    <div class="bg-slate-50 rounded-md w-1/2 text-center">
+      <p class="text-sm text-gray-500">📐 Área total</p>
+      <p class="text-lg font-semibold">{imovel.data.area_total}</p>
+    </div>
+    <div class="bg-slate-50 rounded-md w-1/2 text-center">
+      <p class="text-sm text-gray-500">🏗️ Área construída</p>
+      <p class="text-lg font-semibold">{imovel.data.area_construida}</p>
+    </div>
+  </div>
+  
 
-    <!-- Descrição -->
-    <article class="prose max-w-none">
-      <Content />
-    </article>
-  </section>
-</ImoveisLayout>
+  <!-- Descrição -->
+  <article class="prose max-w-none mb-16">
+    <Content />
+  </article>
+</ImovelLayout>

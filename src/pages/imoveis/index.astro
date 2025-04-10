@@ -1,37 +1,21 @@
 ---
-import { getCollection } from 'astro:content';
-import ImoveisLayout from '../../layouts/ImoveisLayout.astro';
-import ImovelCard from '../../components/Cards/ImovelCard.astro';
+import ImoveisLayout from "../../layouts/ImoveisLayout.astro";
+import { getCollection } from "astro:content";
+import ImoveisWrapper from "../../components/React/ImoveisWrapper.jsx";
 
+const imoveis = await getCollection("imoveis");
+const categorias = Array.from(new Set(imoveis.map((i) => i.data.categoria).filter(Boolean)));
 
-const imoveis = await getCollection('imoveis');
-console.log(imoveis)
+// Lê o filtro da URL
+const url = new URL(Astro.request.url);
+const categoriaSelecionada = url.searchParams.get("categoria") ?? "";
 ---
 
-<ImoveisLayout 
-  imoveis={imoveis} 
-  title="Nossos Imóveis" 
-  description="Encontre a propriedade ideal para o seu negócio">
-  <h1 class="text-3xl lg:text-5xl font-bold">Imóveis</h1>
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8">
-    
-    {imoveis.map((imovel:any) => (
-      <ImovelCard imovel={imovel} />
-    ))}
+<ImoveisLayout imoveis={imoveis} title="Imóveis" description="Encontre seu novo lar!">
+  <div class="container mx-auto px-4 py-12 md:px-20 pt-40">
+    <ImoveisWrapper
+      client:load
+      imoveis={imoveis}
+    />
   </div>
-
 </ImoveisLayout>
-
-<style>
-  * {
-    scroll-behavior: smooth;
-  }
-</style>
-
-<script>
-  import AOS from "aos";
-  AOS.init({
-    duration: 500,
-    once: false,
-  });
-</script>

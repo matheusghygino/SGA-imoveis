@@ -1,0 +1,53 @@
+---
+// components/SidebarImovel.astro
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  imoveis: CollectionEntry<"imoveis">[];
+  categorias: string[];
+}
+
+const { imoveis, categorias } = Astro.props;
+
+// Últimos 5 imóveis (ordenando por data)
+const ultimos = [...imoveis]
+  .sort((a, b) => new Date(b.data.published) - new Date(a.data.published))
+  .slice(0, 5);
+---
+
+<aside class="space-y-10 p-6 bg-white rounded-2xl shadow-md border border-gray-100">
+  <!-- Filtros por categoria -->
+  <div>
+    <h3 class="text-xl font-bold text-primary mb-4">Categorias</h3>
+    <ul class="space-y-2">
+      {categorias.map((cat) => (
+        <li>
+          <a
+            href={`/imoveis?categoria=${encodeURIComponent(cat)}`}
+            class="block px-3 py-2 rounded-lg text-sm font-medium text-gray-700 hover:bg-primary hover:text-white transition bg-slate-50"
+          >
+            {cat}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <!-- Últimos imóveis -->
+  <div>
+    <h3 class="text-xl font-bold text-primary mb-4">Últimos Imóveis</h3>
+    <ul class="space-y-4">
+      {ultimos.map((item) => (
+        <li>
+          <a
+            href={`/imoveis/${item.slug}`}
+            class="block text-sm font-medium text-gray-800 hover:text-primary transition bg-slate-50"
+          >
+            {item.data.title}
+          </a>
+          <p class="text-xs text-gray-500">{item.data.location}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</aside>

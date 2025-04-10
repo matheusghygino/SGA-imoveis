@@ -4,13 +4,19 @@ const imoveisCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     categoria: z.string(),
-    cidade: z.string(),
-    estado: z.string().length(2),
-    valor: z.string(),
-    tamanho: z.string(),
+    location: z.string(),
+    price: z.string(),
+    area_total: z.string(),
+    area_construida: z.string(),
+    bedrooms: z.number(),
+    suites: z.number().optional(),
+    bathrooms: z.number().optional(),
+    parking: z.number().optional(),
     image: z.string(),
     imagens: z.array(z.string()).optional(),
-    draft: z.boolean().optional().default(false)
+    published: z.boolean().default(true),
+    city: z.string(),
+    state: z.string(),
   })
 });
 

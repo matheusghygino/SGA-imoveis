@@ -1,8 +1,7 @@
 ---
-
-import SideBar from "../components/SideBar.astro";
-import type { CollectionEntry } from "astro:content";
 import Layout from "./Layout.astro";
+import type { CollectionEntry } from "astro:content";
+import ImoveisWrapper from "../components/React/ImoveisWrapper.jsx";
 
 interface Props {
   imoveis: CollectionEntry<"imoveis">[];
@@ -12,17 +11,9 @@ interface Props {
 
 const { imoveis, title, description } = Astro.props;
 ---
-
 <Layout title={title} description={description}>
-  <div class="container mx-auto px-4 py-12 md:px-20 pt-40">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-      <main class="md:col-span-3">
-        <slot />
-      </main>
-      
-      <aside class="md:col-span-1">
-        <SideBar imoveis={imoveis} />
-      </aside>
-    </div>
+  <div class="container mx-auto px-4 py-12 pt-40">
+    <!-- Renderiza o wrapper React de forma dinâmica -->
+    <ImoveisWrapper client:load imoveis={imoveis} />
   </div>
 </Layout>

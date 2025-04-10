@@ -1,25 +1,40 @@
 ---
 const { imovel } = Astro.props;
+const data = imovel.data;
 ---
 
-<article class="bg-white rounded-lg shadow overflow-hidden hover:shadow-lg transition-shadow">
+<article class="bg-white rounded-lg shadow hover:shadow-lg transition-shadow overflow-hidden">
   <a href={`/imoveis/${imovel.slug}/`} class="block">
+    <!-- Imagem -->
     <img
-      src={imovel.data.image}
-      alt={imovel.data.title}
+      src={data.image || "/imagens/sem-imagem.jpg"}
+      alt={data.title}
       class="w-full h-48 object-cover"
       loading="lazy"
     />
+
+    <!-- Conteúdo -->
     <div class="p-4">
-      <span class="text-sm text-gray-500">{imovel.data.categoria}</span>
-      <h3 class="text-xl font-bold text-primary-DEFAULT mt-2">
-        {imovel.data.title}
+      <span class="text-sm text-secondary uppercase font-medium tracking-wide">
+        {data.categoria || "Imóvel"}
+      </span>
+
+      <h3 class="text-xl font-bold text-primary mt-1">
+        {data.title}
       </h3>
-      <p class="text-gray-700 mt-2">
-        {imovel.data.cidade}, {imovel.data.estado}
+
+      <p class="text-gray-600 text-sm mt-1">
+        {data.location || "Localização não informada"}
       </p>
-      <p class="text-lg font-bold text-secondary-DEFAULT mt-2">
-        {imovel.data.valor}
+
+      <div class="flex flex-wrap gap-4 text-sm text-gray-700 mt-3">
+        <span>{data.bedrooms || 0} quartos</span>
+        <span>{data.parking || 0} vagas</span>
+        <span>{data.area_total || "Área não informada"}</span>
+      </div>
+
+      <p class="text-lg font-bold text-secondary mt-3">
+        {data.price || "Sob consulta"}
       </p>
     </div>
   </a>
