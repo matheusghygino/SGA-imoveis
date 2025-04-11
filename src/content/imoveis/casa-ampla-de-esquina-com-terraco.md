@@ -57,3 +57,15 @@ Imóvel em **terreno de esquina com 250m²**. A casa conta com **120m² de área
 
 Entre em contato conosco e agende sua visita.  
 Atendimento rápido e direto pelo WhatsApp!
+
+--
+    <div class="mt-8 text-center">
+      <a 
+        href="https://wa.me/5527992627793?text=Olá!%20Tenho%20interesse%20na%20casa%20em%20Ilha%20dos%20Bentos%20que%20vi%20no%20site%20da%20SGA%20Imóveis." 
+        target="_blank" 
+        rel="noopener"
+        class="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-2xl shadow-md transition"
+      >
+        📲 Fale com um corretor no WhatsApp
+      </a>
+    </div>

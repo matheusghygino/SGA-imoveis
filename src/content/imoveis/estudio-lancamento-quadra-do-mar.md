@@ -38,3 +38,15 @@ Lançamento exclusivo de **estúdios em Itaparica**, perfeito para quem busca pr
 ### 💰 Valor: **A partir de R$ 195.000**
 
 Garanta sua unidade ainda na planta e aproveite condições especiais!
+
+--
+    <div class="mt-8 text-center">
+      <a 
+        href="https://wa.me/5527992627793?text=Olá!%20Tenho%20interesse%20no%20estúdio%20em%20Itaparica%20que%20vi%20no%20site%20da%20SGA%20Imóveis." 
+        target="_blank" 
+        rel="noopener"
+        class="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-2xl shadow-md transition"
+      >
+        📲 Fale com um corretor no WhatsApp
+      </a>
+    </div>

@@ -48,3 +48,15 @@ Descubra este lindo apartamento localizado no bairro **Itaparica**, em **Vila Ve
 ### 💰 Valor: **R$ 980.000**
 
 Entre em contato e garanta seu novo lar em Itaparica!
+
+--
+    <div class="mt-8 text-center">
+      <a 
+        href="https://wa.me/5527992627793?text=Olá!%20Tenho%20interesse%20no%20apartamento%20em%20Itaparica%20de%20três%20quartos%20que%20vi%20no%20site%20da%20SGA%20Imóveis." 
+        target="_blank" 
+        rel="noopener"
+        class="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-2xl shadow-md transition"
+      >
+        📲 Fale com um corretor no WhatsApp
+      </a>
+    </div>

@@ -13,18 +13,18 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    
+
     <title>{title}</title>
     <meta name="description" content={description} />
-    
+
     <meta
       name="keywords"
       content="imóveis à venda, Vila Velha, Espírito Santo, Praia da Costa, Itapoã, Itaparica, apartamentos Vila Velha, casas à venda ES, imóveis no litoral, SGA Imóveis"
     />
     <meta name="author" content="SGA Imóveis" />
-    
+
     <link rel="canonical" href={Astro.url.href} />
-  
+
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,17 +32,18 @@ const { title, description } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     />
-  
+
     <!-- Favicon (se quiser adicionar depois) -->
     <!-- <link rel="icon" href="/favicon.ico" /> -->
-  
+
     <!-- Meta Social (Open Graph para Facebook/LinkedIn) -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.href} />
-    <meta property="og:image" content="/thumb.jpg" /> <!-- atualize com imagem real -->
-  
+    <meta property="og:image" content="/thumb.jpg" />
+    <!-- atualize com imagem real -->
+
     <!-- Meta Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
@@ -80,13 +81,28 @@ const { title, description } = Astro.props;
         "openingHours": "Mo-Fr 08:00-18:00"
       }
     </script>
+
+        <!-- Adiamento do Google Tag Manager -->
+        <script>
+          window.addEventListener('load', function() {
+            const gtmScript = document.createElement('script');
+            gtmScript.src = "https://www.googletagmanager.com/gtag/js?id=G-DZPD455W6G";
+            gtmScript.async = true;
+            document.head.appendChild(gtmScript);
+    
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ window.dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-1WQ1SGFVDM');
+          });
+        </script>
+
+    <script>
+      import AOS from "aos";
+      AOS.init({
+        duration: 500,
+        once: false,
+      });
+    </script>
   </body>
 </html>
-
-<script>
-  import AOS from "aos";
-  AOS.init({
-    duration: 500,
-    once: false,
-  });
-</script>
